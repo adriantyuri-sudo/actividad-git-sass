@@ -1,0 +1,259 @@
+$color-fondo: #0b0b0f;
+$color-superficie: #15151c;
+$color-principal: #c8ff00;
+$color-secundario: #ffffff;
+$color-texto: #b5b5bd;
+
+$espaciado: 30px;
+$radio: 12px;
+
+
+@mixin boton {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: $radio;
+    background-color: $color-principal;
+    color: $color-fondo;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: $color-fondo;
+    color: $color-secundario;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 8%;
+
+    background-color: $color-fondo;
+
+    border-bottom: 1px solid #24242c;
+
+    .logo {
+
+        h1 {
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: $color-principal;
+        }
+    }
+
+    .nav {
+
+        display: flex;
+        gap: 25px;
+
+        a {
+            color: $color-secundario;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+
+            &:hover {
+                color: $color-principal;
+            }
+        }
+    }
+}
+
+
+.hero {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 8%;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(200, 255, 0, 0.15),
+            transparent 35%
+        );
+
+    .hero__contenido {
+        max-width: 700px;
+
+        .hero__subtitulo {
+            color: $color-principal;
+            font-weight: bold;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: clamp(60px, 10vw, 140px);
+            line-height: 0.85;
+            margin-bottom: 30px;
+        }
+
+        .hero__texto {
+            max-width: 500px;
+            color: $color-texto;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .boton {
+            @include boton;
+        }
+    }
+}
+
+
+.seccion-titulo {
+    margin-bottom: 40px;
+
+    p {
+        color: $color-principal;
+        font-size: 14px;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 50px;
+    }
+}
+
+
+.generos {
+    padding: 100px 8%;
+
+    .generos__contenedor {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $espaciado;
+
+        .genero {
+            background-color: $color-superficie;
+            padding: 35px;
+            border-radius: $radio;
+            border: 1px solid #24242c;
+            transition: 0.3s;
+
+            &:hover {
+                transform: translateY(-8px);
+                border-color: $color-principal;
+            }
+
+            span {
+                color: $color-principal;
+                font-size: 14px;
+            }
+
+            h3 {
+                margin: 25px 0 15px;
+                font-size: 25px;
+            }
+
+            p {
+                color: $color-texto;
+                line-height: 1.6;
+            }
+        }
+    }
+}
+
+
+.artistas {
+    padding: 100px 8%;
+    background-color: $color-superficie;
+
+    .artistas__contenedor {
+        display: flex;
+        flex-direction: column;
+
+        .artista {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid #292933;
+
+            transition: 0.3s;
+
+            &:hover {
+                padding-left: 15px;
+            }
+
+            .artista__numero {
+                color: $color-principal;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            h3 {
+                font-size: 30px;
+            }
+
+            p {
+                color: $color-texto;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+
+footer {
+    padding: 30px 8%;
+    text-align: center;
+    color: $color-texto;
+    font-size: 13px;
+}
+
+
+@media (max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero {
+        min-height: 70vh;
+
+        .hero__contenido {
+
+            h2 {
+                font-size: 70px;
+            }
+        }
+    }
+
+    .generos {
+
+        .generos__contenedor {
+            grid-template-columns: 1fr;
+        }
+    }
+}
