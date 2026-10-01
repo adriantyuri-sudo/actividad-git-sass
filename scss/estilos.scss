@@ -3,6 +3,7 @@ $color-superficie: #15151c;
 $color-principal: #c8ff00;
 $color-secundario: #ffffff;
 $color-texto: #b5b5bd;
+$color-acento: #ff0055;
 
 $espaciado: 30px;
 $radio: 12px;
@@ -206,7 +207,7 @@ body {
             }
 
             .artista__numero {
-                color: $color-principal;
+                color: $color-acento;
                 font-size: 18px;
                 font-weight: bold;
             }
